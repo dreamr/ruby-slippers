@@ -1,0 +1,9 @@
+<h1>Posts tagged with: <%= tagged %></h1>
+
+<% unless articles.empty? %>
+  <ul>
+    <% for article in articles %>
+      <li class="article"><a href="<%= article.url %>"><%= article.title %></a></li>
+    <% end %>
+  </ul>
+<% end %>

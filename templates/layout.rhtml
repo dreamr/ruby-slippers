@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/articles.css">
+    <link rel="alternate" type="application/atom+xml" title="<%= title %> - atom feed" href="/index.xml" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+    <title><%= title %></title>
+  </head>
+  <body>
+    <header>
+      <h1><a href="/"><%= @config[:title] %></a></h1>
+      <h3>a blog by <%= @config[:author] %></h3>
+    </header>
+    <menu>
+      <ul>
+        <li><a href="/">home</a></li>
+        <li><a href="/index.xml">feed</a></li>
+        <li><a href="/archives">archives</a></li>
+        <li><a href="/about">about</a></li>
+      </ul>
+    </menu>
+    <section id="content">
+      <%= yield %> 
+    </section>
+    <footer>
+      powered by <a href="http://github.com/dreamr/ruby_slippers">ruby-slippers</a>
+    </footer>
+  </body>
+</html>
+

@@ -1,0 +1,112 @@
+html { margin: 20px }
+body {
+  margin: 0 auto;
+  font-family: 'Baskerville', Georgia, Times, serif;
+  font-size: 20px;
+  line-height: 30px;
+  padding: 15px;
+  width: 820px;
+
+}
+header, footer, section, article {
+	display: block;
+}
+#content {
+  margin: 0px auto;
+  width: 90%;
+}
+#by {
+	font-style: italic;
+  margin-right: 5px;
+	font-size: 28px;
+}
+#caption {
+	position: absolute;
+	font-size: 24px;
+	margin: -135px 0 0 70px;
+}
+
+#path {
+	color: #F71570;
+}
+
+a {
+  color: #F71570;
+}
+h1 a {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+body > header > h1 {
+	border-left: 12px solid black;
+	padding-left: 12px;
+  font-size: 160%;
+  margin: 20px 0 8px 0;
+  font-weight: bold;
+}
+
+body > header > h1 a:hover {
+  color: #F71570;
+}
+
+body > header > h3 {
+  font-weight: normal;
+  display: block;
+  margin: 0 0 -32px 32px;
+  font-size: 80%;
+  line-height: 80%;
+  letter-spacing: 1.1px;
+  width: 90%;
+}
+
+body > menu {
+  border-bottom: 3px dotted #ddd;
+}
+
+body > menu:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+body > menu ul {
+  float: right;
+  margin: 0; padding: 0;
+}
+
+body > menu ul li {
+  float: left;
+  padding-right: 30px;
+}
+
+h1, h2, h3, h4 {
+  display: inline;
+  margin: 0;
+  font-weight: 600;
+}
+ul, li {
+  list-style-type: none;
+}
+code {
+  font-family: 'Anonymous Pro', 'Bitstream Vera Sans', 'Monaco', Courier, mono;
+}
+pre {
+  padding: 20px;
+}
+blockquote {
+  font-style: italic;
+}
+
+body > footer {
+  text-align: left;
+  padding: 2px 12px;
+	font-style: italic;
+  font-size: 18px;
+  color: #000;
+  background-color: #eee;
+}

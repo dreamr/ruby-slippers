@@ -1,0 +1,27 @@
+<section id="articles">
+  <% for article in articles[0...3] %>
+    <article class="article">
+      <header>
+        <h1><a href="<%= article.path %>"><%= article.title %></a></h1>
+        <span class="date"><%= article.date %></span>
+      </header>
+      
+      <% if article.image_src %>
+      <figure>
+        <img src="<%= article.image_src || '/img/missing_thumb.png' %>" alt="Post thumbnail" class="thumbnail alignleft" />
+      </figure>
+      <% end %>
+      
+      <section class="content">
+        <%= article.summary %>
+      </section>
+      
+      <footer>
+        <div class="more-link"><a href="<%= article.path %>">read on &raquo;</a></div>
+        <span class="meta">
+          <p>Posted by <%= article.author %> in <%= article.tag_links %> on <%= article.date %></p>
+        </div>
+      </footer>
+    </article>
+  <% end %>
+</section>
