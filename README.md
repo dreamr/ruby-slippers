@@ -3,14 +3,11 @@ RubySlippers, the smartest blogging engine in all of Oz!
 
 [website](http://ruby-slippers.heroku.com)
 
+
 Introduction
 ------------
 
-
-For Developers
---------------
-
-#### To set up a new blog
+### To set up a new blog
 
     $ git clone git://github.com/dreamr/ruby-slippers.git myblog
     $ cd myblog
@@ -22,7 +19,7 @@ For Developers
     $ Blog installed!
     
     
-#### To create an article
+### To create an article
 
     $ rake new
     $ -> Title: My new blog post!
@@ -33,12 +30,11 @@ For Developers
 Philosophy
 ----------
 
-RubySlippers::Engineis based on [Toto](http://github.com/cloudhead/toto) and aims to achieve their goals as well as our own. Hosting a ruby based free blog shouldn't be hard. We want to take that a step further and say it should be easy. Easy as pie. Easy as my best friend's Mom. Easy as a 1 click installer.
+RubySlippers is based on [Toto](http://github.com/cloudhead/toto) and aims to achieve their goals as well as our own. Hosting a ruby based free blog shouldn't be hard. We want to take that a step further and say it should be easy. Easy as pie. Easy as my best friend's Mom. Easy as a 1 click installer.
 
 Oh yeah, MRI, bytecode whatever. If it is Ruby, it should run.
 
-How it works
-------------
+### How it works
 
 - Article management is done with a text editor and git
   * stored as _.txt_ files, with embeded metadata (in yaml format).
@@ -53,23 +49,23 @@ How it works
 - built with _heroku_ in mind.
 
 
-RubySlippers::Enginecomes with a basic default theme for you to mangle. I hope to release more themes shortly and will accept your submitted themes.
+RubySlippers comes with a basic default theme for you to mangle. I hope to release more themes shortly and will accept your submitted themes.
 
 Deployment
 ==========
 
-#### on heroku
+### on heroku
 
-RubySlippers::Enginecomes with a basic rackup file. To start it up locally do:
+RubySlippers comes with a basic rackup file. To start it up locally do:
 
     $ cd myblog
     $ bundle
     $ shotgun
     [2011-06-20 17:04:46] INFO  WEBrick::HTTPServer#start: pid=61628 port=9393
 
-#### on your own server
+### on your own server
 
-Once you have created the remote git repo, and pushed your changes to it, you can run RubySlippers::Enginewith any Rack compliant web server, such as **thin**, **mongrel** or **unicorn**.
+Once you have created the remote git repo, and pushed your changes to it, you can run RubySlippers with any Rack compliant web server, such as **thin**, **mongrel** or **unicorn**.
 
 With thin, you would do something like:
 
@@ -80,7 +76,7 @@ With unicorn, you can just do:
     $ unicorn
 
 
-### Configuration
+#### Configuration
 
 You can configure ruby-slippers, by modifying the _config.ru_ file. For example, if you want to set the blog author to 'John Galt',
 you could add `set :author, 'John Galt'` inside the `RubySlippers::Engine::App.new` block. Here are the defaults, to get you started:
@@ -105,8 +101,7 @@ you could add `set :author, 'John Galt'` inside the `RubySlippers::Engine::App.n
       "<font style='font-size:300%'>A large house has landed on you. You cannot continue because you are dead. <a href='/'>try again</a> (#{code})</font>"
     end
 
-Thanks
-------
+### Thanks
 
 * To heroku for making this easy as pie.
 * To the developers of [Toto](http://github.com/cloudhead/toto), for making such an awesome minimal blog engine in Ruby.

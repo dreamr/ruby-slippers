@@ -2,15 +2,20 @@
 use Rack::Static, :urls => ['/css', '/js', '/img', '/favicon.ico'], :root => 'public'
 use Rack::CommonLogger
 
-require 'ruby_slippers'
+if ENV['RACK_ENV'] == 'development'
+  require './lib/ruby_slippers'
+else
+  require 'ruby_slippers'
+end
 
 #
 # Create and configure a ruby-slippers instance
 #
 app = RubySlippers::Engine::App.new do
-  log = File.new("slippers.log", "a+")
-  $stdout.reopen(log)
-  $stderr.reopen(log)
+  # log_file = File.expand_path("../log/slippers.log", __FILE__)
+  # log = File.new(log_file, "a+")
+  # $stdout.reopen(log)
+  # $stderr.reopen(log)
   
   #
   # Add your settings here
