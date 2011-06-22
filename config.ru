@@ -36,6 +36,14 @@ app = RubySlippers::Engine::App.new do
   set :date, lambda {|now| now.strftime("%B #{now.day.ordinal} %Y") }
   # set this to your local port. I use shotgun, so 9393.
   set :url, "http://localhost:9393" if ENV['RACK_ENV'] == 'development'
+
+  # to use haml, add the gem to your Gemfile and bundle, then uncomment this
+  # and redo your templates using haml
+  # set :to_html, lambda { |path, page, binding| 
+  #   Haml::Engine.new(File.read("#{path}/#{page}.haml"),
+  #   :attr_wrapper => '"',
+  #   :filename => path ).render(binding)
+  # }
 end
 
 run app

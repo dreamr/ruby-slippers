@@ -97,7 +97,7 @@ you could add `set :author, 'John Galt'` inside the `RubySlippers::Engine::App.n
     set :cache,       28800                                     # cache site for 8 hours
 
     set :to_html   do |path, page, ctx|                         # returns an html, from a path & context
-      ERB.new(File.read("#{path}/#{page}.rhtml")).result(ctx)
+      ERB.new(File.read("#{path}/#{page}.html.erb")).result(ctx)
     end
 
     set :error     do |code|                                    # The HTML for your error page
