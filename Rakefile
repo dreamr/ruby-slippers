@@ -1,5 +1,6 @@
 require 'ruby_slippers'
 @config = RubySlippers::Engine::Config::Defaults
+Dir.glob('lib/tasks/*.rake').each { |file| import file }
 
 task :default => :new
 

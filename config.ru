@@ -2,9 +2,11 @@
 use Rack::Static, :urls => ['/css', '/js', '/img', '/favicon.ico'], :root => 'public'
 use Rack::CommonLogger
 
-if ENV['RACK_ENV'] == 'development'
+begin
+  # try to run as library (development)
   require './lib/ruby_slippers'
-else
+rescue
+  # run as gem (lib not installed)
   require 'ruby_slippers'
 end
 
