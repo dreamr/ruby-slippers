@@ -3,6 +3,7 @@ require 'rake'
 require 'rake/testtask'
 require 'ruby_slippers'
 require "./lib/ruby_slippers/client/tasks"
+Dir.glob('./slippers_lib/tasks/*.rake').each { |file| import file }
 
 task :default => :new
 
@@ -14,16 +15,19 @@ end
 
 desc "Install my blog."
 task :install do
-  RubySlippers::Client::Tasks.install_blog!
+  tasks = RubySlippers::Client::Tasks.new
+  tasks.install_blog!
 end
 
 desc "Create a new article."
 task :new do
-  RubySlippers::Client::Tasks.create_article!
+  tasks = RubySlippers::Client::Tasks.new
+  tasks.create_article!
 end
 
 desc "Publish my blog."
 task :publish do
-  RubySlippers::Client::Tasks.publish_blog!
+  tasks = RubySlippers::Client::Tasks.new
+  tasks.publish_blog!
 end
 
