@@ -54,19 +54,22 @@ RubySlippers comes with a basic default theme for you to mangle. I hope to relea
 Deployment
 ==========
 
-### on heroku
+### On Heroku
 
 RubySlippers comes with a basic rackup file. To start it up locally do:
 
-    $ cd myblog
-    $ bundle
-    $ shotgun
-    [2011-06-20 17:04:46] INFO  WEBrick::HTTPServer#start: pid=61628 port=9393
+    $ git remote add origin git@heroku:you-app-name
+    $ git commit -m "my new awesome commit"
+    $ git push
 
-### on your own server
+### On your own server
 
 Once you have created the remote git repo, and pushed your changes to it, you can run RubySlippers with any Rack compliant web server, such as **thin**, **mongrel** or **unicorn**.
 
+I use [shotgun](https://github.com/rtomayko/shotgun):
+
+    $ shotgun
+    
 With thin, you would do something like:
 
     $ thin start -R config.ru
