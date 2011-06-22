@@ -1,17 +1,19 @@
 require 'rubygems'
 require 'hpricot'
 require 'riot'
+require 'riot/rr'
 
 $:.unshift File.dirname(__FILE__)
 $:.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 
 begin
   # try to run as library (development)
-  require './lib/ruby_slippers'
+  require './slippers_lib/ruby_slippers'
 rescue
   # run as gem (lib not installed)
   require 'ruby_slippers'
 end
+require "./lib/ruby_slippers/client/tasks"
 
 URL = "http://domain.oz"
 AUTHOR = "author"

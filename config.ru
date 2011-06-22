@@ -4,7 +4,7 @@ use Rack::CommonLogger
 
 begin
   # try to run as library (development)
-  require './lib/ruby_slippers'
+  require './slippers_lib/ruby_slippers'
 rescue
   # run as gem (lib not installed)
   require 'ruby_slippers'
