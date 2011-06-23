@@ -2,7 +2,7 @@ require 'rubygems'
 require 'rake'
 require 'rake/testtask'
 require 'ruby_slippers'
-require "lib/ruby_slippers/client/tasks"
+require File.expand_path("../lib/ruby_slippers/client/tasks", __FILE__)
 
 task :default => :new
 
