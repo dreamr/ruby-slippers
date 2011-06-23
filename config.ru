@@ -2,7 +2,7 @@
 begin
   # try to run as library (development)
   require './slippers_lib/ruby_slippers'
-rescue
+rescue LoadError
   # run as gem (lib not installed)
   require 'ruby_slippers'
 end

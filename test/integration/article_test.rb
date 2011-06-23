@@ -1,0 +1,1 @@
+../../../engine/test/integration/article_test.rb
