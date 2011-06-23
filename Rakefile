@@ -2,14 +2,25 @@ require 'rubygems'
 require 'rake'
 require 'rake/testtask'
 require 'ruby_slippers'
-require 'lib/ruby_slippers/client/tasks'
+require './lib/ruby_slippers/client/tasks'
 
 task :default => :new
 
-Rake::TestTask.new("test") do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = "test/client_tasks/*_test.rb"
-  test.verbose = true
+namespace :test do
+  TEST_TYPES = %w(unit integration)
+  TEST_TYPES.each do |type|
+    Rake::TestTask.new(type) do |test|
+      test.libs << 'lib' << 'test'
+      test.pattern = "test/#{type}/*_test.rb"
+      test.verbose = true
+    end
+  end
+  
+  Rake::TestTask.new(:all) do |test|
+    test.libs << 'lib' << 'test'
+    test.pattern = 'test/**/*_test.rb'
+    test.verbose = true
+  end
 end
 
 desc "Install my blog."

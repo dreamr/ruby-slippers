@@ -14,7 +14,7 @@ rescue LoadError
   require 'ruby_slippers'
 end
 
-require 'lib/ruby_slippers/client/tasks'
+require './lib/ruby_slippers/client/tasks'
 
 URL = "http://domain.oz"
 AUTHOR = "author"
