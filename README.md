@@ -1,8 +1,10 @@
 RubySlippers, the smartest blogging engine in all of Oz!
-========================================================
-
+================
 [website](http://ruby-slippers.heroku.com)
 
+RubySlippers is a git powered blog engine that aims to be simply to modify and more importantly, simple and quick and free to get a blog going. I am currently using it to run several blogs in production, you can see one in action here:
+
+[www.ninjaconfessions.com](www.ninjaconfessions.com) - My ruby blog
 
 Introduction
 ------------
@@ -25,31 +27,6 @@ Introduction
     $ -> Title: My new blog post!
     $ Creating and opening my-new-blog-post (opens in your text editor!)
     $ rake publish (commits, pushes, publishes then opens in your browser!)
-
-
-Philosophy
-----------
-
-RubySlippers is based on [Toto](http://github.com/cloudhead/toto) and aims to achieve their goals as well as our own. Hosting a ruby based free blog shouldn't be hard. We want to take that a step further and say it should be easy. Easy as pie. Easy as my best friend's Mom. Easy as a 1 click installer.
-
-Oh yeah, MRI, bytecode whatever. If it is Ruby, it should run.
-
-### How it works
-
-- Article management is done with a text editor and git
-  * stored as _.txt_ files, with embeded metadata (in yaml format).
-  * processed through a markdown converter (rdiscount) by default.
-  * can have tags
-  * can have images
-  * can be browsed by date, or tags
-  * comments are handled by [disqus](http://disqus.com)
-- built for easy use with _ERB_.
-- built right on top of _Rack_.
-- built to take advantage of _HTTP caching_.
-- built with _heroku_ in mind.
-
-
-RubySlippers comes with a basic default theme for you to mangle. I hope to release more themes shortly and will accept your submitted themes.
 
 Deployment
 ==========
@@ -103,6 +80,30 @@ you could add `set :author, 'John Galt'` inside the `RubySlippers::Engine::App.n
     set :error     do |code|                                    # The HTML for your error page
       "<font style='font-size:300%'>A large house has landed on you. You cannot continue because you are dead. <a href='/'>try again</a> (#{code})</font>"
     end
+
+Philosophy
+----------
+
+RubySlippers is based on [Toto](http://github.com/cloudhead/toto) and aims to achieve their goals as well as our own. Hosting a ruby based free blog shouldn't be hard. We want to take that a step further and say it should be easy. Easy as pie. Easy as my best friend's Mom. Easy as a 1 click installer.
+
+Oh yeah, MRI, bytecode whatever. If it is Ruby, it should run.
+
+### How it works
+
+- Article management is done with a text editor and git
+  * stored as _.txt_ files, with embeded metadata (in yaml format).
+  * processed through a markdown converter (rdiscount) by default.
+  * can have tags
+  * can have images
+  * can be browsed by date, or tags
+  * comments are handled by [disqus](http://disqus.com)
+- built for easy use with _ERB_.
+- built right on top of _Rack_.
+- built to take advantage of _HTTP caching_.
+- built with _heroku_ in mind.
+
+
+RubySlippers comes with a basic default theme for you to mangle. I hope to release more themes shortly and will accept your submitted themes.
 
 ### Thanks
 
