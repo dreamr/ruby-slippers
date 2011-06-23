@@ -7,7 +7,7 @@ require './lib/ruby_slippers/client/tasks'
 task :default => :new
 
 namespace :test do
-  TEST_TYPES = %w(unit integration)
+  TEST_TYPES = %w(integration)
   TEST_TYPES.each do |type|
     Rake::TestTask.new(type) do |test|
       test.libs << 'lib' << 'test'
@@ -18,10 +18,11 @@ namespace :test do
   
   Rake::TestTask.new(:all) do |test|
     test.libs << 'lib' << 'test'
-    test.pattern = 'test/**/*_test.rb'
+    test.pattern = 'test/integration/*_test.rb'
     test.verbose = true
   end
 end
+task :test => 'test:all'
 
 desc "Install my blog."
 task :install do
