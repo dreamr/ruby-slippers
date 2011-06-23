@@ -32,7 +32,7 @@ module RubySlippers
       context "with a user-defined to_html" do
         setup do
           @config[:to_html] = lambda do |path, page, binding|
-            ERB.new(File.read("#{path}/#{page}.rhtml")).result(binding)
+            ERB.new(File.read("#{path}/#{page}.html.erb")).result(binding)
           end
           @ruby_slippers.get('/')
         end
