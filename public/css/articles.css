@@ -60,7 +60,7 @@
   box-orient: horizontal;
 }
 
-.article .meta p {
+.article .meta div {
   background: #f3f3f3; /* Fallback */
   background: -moz-linear-gradient(top, #f3f3f3 0%, #ececec 100%); /* FF 3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3f3f3), color-stop(100%,#ececec)); /* Chrome, Safari 4+ */
@@ -76,8 +76,9 @@
   border-radius: 5px;
   line-height: 1.8;
   margin: 0;
-  padding: 10px 16px;
+  padding: 4px 16px 0px 16px;
   text-shadow: 0 1px 0 #eee;
+  height: 38px;
   
   /* 2:1 ratio */
   -webkit-box-flex: 2;
@@ -86,17 +87,28 @@
   text-align: right;
 }
 
+.article .meta div p {
+  margin-top: 6px;
+  font-weight: normal;
+}
+
+.article .meta div a.tag {
+  font-weight: bold;
+}
+
+.article .meta div p.tags {
+  background: url(/img/theme/tag_icon_24.png) 0px -1px no-repeat;
+  float: left;
+  padding-left: 30px;
+}
+
+
 .article .more-link {
   letter-spacing: .08px;
-  font-weight: bold;
-  font-size: 80%;
-  margin: -60px 10px;
+  font-weight: normal;
+  font-size: 90%;
+  margin: -40px 10px;
   float: right;
-  
-  /* 2:1 ratio */
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  box-flex: 1;
 }
 
 /* Post thumbnail and images */

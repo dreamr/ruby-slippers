@@ -17,9 +17,17 @@
       </section>
       
       <footer>
-        <%= article.read_more_link %>
+        
+        <% if article.has_more_then_summary? %>
+          <div class="more-link">
+            <a href="<%= article.path %>">read on &raquo;</a>
+          </div>
+        <% end %>
         <span class="meta">
-          <p>Posted by <%= article.author %> in <%= article.tag_links %> on <%= article.date %></p>
+          <div>
+            <p class="tags"><% unless article.tag_links.blank? %>in <%= article.tag_links %><% end %></p>
+            <p>Posted by <%= article.author %> on <%= article.date %></p>
+          </div>
         </div>
       </footer>
     </article>

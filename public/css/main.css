@@ -92,7 +92,15 @@ h1, h2, h3, h4 {
 ul, li {
   list-style-type: none;
 }
-
+code {
+  font-size: 12pt;
+  font-family: 'Anonymous Pro', 'Bitstream Vera Sans', 'Monaco', Courier, mono;
+}
+pre {
+  padding: 20px;
+  background: #0d0e11;
+  color: white;
+}
 blockquote {
   font-style: italic;
 }
