@@ -6,8 +6,8 @@ module RubySlippers::Engine
       @config = RubySlippers::Engine::Config.new(:markdown => true, :author => AUTHOR, :url => URL)
       @ruby_slippers = Rack::MockRequest.new(RubySlippers::Engine::App.new(@config))
 
-      RubySlippers::Engine::Paths[:articles]  = "test/fixtures/articles"
       if File.expand_path("../../", __FILE__) =~ /engine/
+        RubySlippers::Engine::Paths[:articles]  = "test/fixtures/articles"
         RubySlippers::Engine::Paths[:templates] = "test/fixtures/templates"
         RubySlippers::Engine::Paths[:pages]     = "test/fixtures/pages"
       end

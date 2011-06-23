@@ -7,8 +7,8 @@ module RubySlippers
       @config = RubySlippers::Engine::Config.new(:markdown => true, :author => AUTHOR, :url => URL)
       @ruby_slippers = Rack::MockRequest.new(RubySlippers::Engine::App.new(@config))  
       
-      RubySlippers::Engine::Paths[:articles]  = "test/fixtures/articles"
       if File.expand_path("../../", __FILE__) =~ /engine/
+        RubySlippers::Engine::Paths[:articles]  = "test/fixtures/articles"
         RubySlippers::Engine::Paths[:templates] = "test/fixtures/templates"
         RubySlippers::Engine::Paths[:pages]     = "test/fixtures/pages"
       end
@@ -32,7 +32,7 @@ module RubySlippers
       context "with a user-defined to_html" do
         setup do
           @config[:to_html] = lambda do |path, page, binding|
-            ERB.new(File.read("#{path}/#{page}.html.erb")).result(binding)
+            ERB.new(File.read("#{path}/#{page}.rhtml")).result(binding)
           end
           @ruby_slippers.get('/')
         end
