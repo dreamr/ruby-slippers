@@ -1,8 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'ruby-slippers'
-gem 'rack-codehighlighter'
-gem 'coderay'
 
 group :test, :development do
   gem 'heroku'

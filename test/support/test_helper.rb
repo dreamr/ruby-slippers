@@ -13,7 +13,6 @@ rescue
   # run as gem (lib not installed)
   require 'ruby_slippers'
 end
-require "./lib/ruby_slippers/client/tasks"
 
 URL = "http://domain.oz"
 AUTHOR = "author"

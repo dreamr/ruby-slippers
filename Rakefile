@@ -2,7 +2,7 @@ require 'rubygems'
 require 'rake'
 require 'rake/testtask'
 require 'ruby_slippers'
-require "./lib/ruby_slippers/client/tasks"
+require "lib/ruby_slippers/client/tasks"
 Dir.glob('./slippers_lib/tasks/*.rake').each { |file| import file }
 
 task :default => :new
