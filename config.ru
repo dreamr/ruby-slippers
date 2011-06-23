@@ -1,6 +1,3 @@
-# Rack config
-use Rack::Static, :urls => ['/css', '/js', '/img', '/favicon.ico'], :root => 'public'
-use Rack::CommonLogger
 
 begin
   # try to run as library (development)
@@ -9,6 +6,11 @@ rescue
   # run as gem (lib not installed)
   require 'ruby_slippers'
 end
+
+# Rack config
+use Rack::CommonLogger
+use Rack::Static, 
+  :urls => ['/css', '/js', '/img', '/favicon.ico'], :root => 'public'
 
 #
 # Create and configure a ruby-slippers instance
