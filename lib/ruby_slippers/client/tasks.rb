@@ -8,6 +8,9 @@ module RubySlippers
     class Tasks
       include Rake::DSL
       
+      ROOT = File.expand_path("../../../../", __FILE__)
+      THUMBS = File.expand_path("../../../../public/img/archives/", __FILE__)
+      
       @@config = RubySlippers::Engine::Config::Defaults
       
       def create_article!
@@ -54,7 +57,39 @@ module RubySlippers
         `heroku open`
       end
       
+      def create_missing_thumbs!
+        @@config[:url] = "http://localhost:9393"
+        for article in RubySlippers::Engine::Site.articles(@@config[:ext])
+          article = RubySlippers::Engine::Article.new article, @@config
+          next if thumb_exists?(article.slug)
+          start_web
+          make_thumb article.url, THUMBS, article.slug
+          clean_pid
+        end
+      end
+      
     private
+    
+      def start_web
+        cmd="cd #{ROOT} && rackup -p 9393 --pid ./rack.pid &"
+        puts "starting web server"
+        system cmd
+      end
+    
+      def clean_pid
+        puts "stopping web server"
+        pid = File.read(ROOT+'/rack.pid')
+        system "kill -9 #{pid}"
+      end
+    
+      def thumb_exists?(path)
+        File.exists? THUMBS+'/'+path+'-full.png'
+      end
+      
+      def make_thumb(browse_to, save_to, image_name)
+        cmd="cd #{ROOT} && python ./bin/webkit2png.py -F #{browse_to} -o #{save_to}/#{image_name}"
+        system cmd
+      end
     
       def ask message
         print message

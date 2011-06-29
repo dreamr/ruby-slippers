@@ -4,6 +4,8 @@ require 'rake/testtask'
 require 'ruby_slippers'
 require './lib/ruby_slippers/client/tasks'
 
+TASKS = RubySlippers::Client::Tasks.new
+
 task :default => :new
 
 namespace :test do
@@ -26,19 +28,21 @@ task :test => 'test:all'
 
 desc "Install my blog."
 task :install do
-  tasks = RubySlippers::Client::Tasks.new
-  tasks.install_blog!
+  TASKS.install_blog!
 end
 
 desc "Create a new article."
 task :new do
-  tasks = RubySlippers::Client::Tasks.new
-  tasks.create_article!
+  TASKS.create_article!
 end
 
 desc "Publish my blog."
-task :publish do
-  tasks = RubySlippers::Client::Tasks.new
-  tasks.publish_blog!
+task :publish => :create_thumbs do
+  TASKS.publish_blog!
+end
+
+desc "Create missing article thumbs"
+task :create_thumbs do
+  TASKS.create_missing_thumbs!
 end
 
