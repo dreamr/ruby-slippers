@@ -1,6 +1,7 @@
 CHANGELOG
 =========
 
+2011/06/28 - rake publish will now create thumbs of your pages for the archive
 2011/06/22 - All dates are now yyyy/mm/dd
 2011/06/22 - Article more link out of code into view
 2011/06/22 - Style fixes
