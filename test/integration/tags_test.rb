@@ -12,12 +12,13 @@ module RubySlippers::Engine
         Paths[:pages]     = "test/fixtures/pages"
       end
     end
+    
     context "GET the tagged page" do 
-      setup { @ruby_slippers.get('/tagged/wizard') }
+      setup { @ruby_slippers.get('/tagged/oz') }
       asserts("return a 200") { topic.status }.equals 200 
       asserts("body is not empty") {not topic.body.empty? }
       should("include only the entries for that tag") { topic.body }.includes_elements("li.article", 2)
-      should("have access to @tag") { topic.body }.includes_html("h1" => /wizard/)
+      should("have access to @tag") { topic.body }.includes_html("h1" => /oz/)
     end
   end
 end
