@@ -24,13 +24,13 @@ module RubySlippers::Engine
       context "through a year" do
         setup { @ruby_slippers.get('/2011') }
         asserts("returns a 200")                     { topic.status }.equals 200
-        should("includes the entries for that year") { topic.body }.includes_elements("li.article", 1)
+        should("includes the entries for that year") { topic.body }.includes_elements("div.archived_article", 1)
       end
 
       context "through a year & month" do
         setup { @ruby_slippers.get('/2011/05') }
         asserts("returns a 200")                      { topic.status }.equals 200
-        should("includes the entries for that month") { topic.body }.includes_elements("li.article", 1)
+        should("includes the entries for that month") { topic.body }.includes_elements("div.archived_article", 1)
         should("includes the year & month")           { topic.body }.includes_html("h1" => /2011\/05/)
       end
 
@@ -40,11 +40,11 @@ module RubySlippers::Engine
     end
 
     context "GET the tagged page" do 
-      setup { @ruby_slippers.get('/tagged/wizard') }
+      setup { @ruby_slippers.get('/tagged/oz') }
       asserts("returns a 200")                         { topic.status }.equals 200 
       asserts("body is not empty")                     { not topic.body.empty? }
-      should("includes only the entries for that tag") { topic.body }.includes_elements("li.article", 1)
-      should("has access to @tag")                     { topic.body }.includes_html("h1" => /wizard/)
+      should("includes only the entries for that tag") { topic.body }.includes_elements("li.article", 2)
+      should("has access to @tag")                     { topic.body }.includes_html("h1" => /oz/)
     end
   end
   

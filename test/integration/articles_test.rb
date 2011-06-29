@@ -54,16 +54,16 @@ module RubySlippers::Engine
 
     context "GET to the archive" do
       context "through a year" do
-        setup { @ruby_slippers.get('/2011') }
+        setup { @ruby_slippers.get('/2010') }
         asserts("return a 200") { topic.status }.equals 200
-        should("include the entries for that year") { topic.body }.includes_elements("li.article", 1)
+        should("include the entries for that year") { topic.body }.includes_elements("div.archived_article", 3)
       end
 
       context "through a year & month" do
-        setup { @ruby_slippers.get('/2011/05') }
+        setup { @ruby_slippers.get('/2010/05') }
         asserts("return a 200")  { topic.status }.equals 200
-        should("include the entries for that month") { topic.body }.includes_elements("li.article", 1)
-        should("include the year & month") { topic.body }.includes_html("h1" => /2011\/05/)
+        should("include the entries for that month") { topic.body }.includes_elements("div.archived_article", 3)
+        should("include the year & month") { topic.body }.includes_html("h1" => /2010\/05/)
       end
 
       context "through /archives" do
@@ -72,11 +72,11 @@ module RubySlippers::Engine
     end
 
     context "GET the tagged page" do 
-      setup { @ruby_slippers.get('/tagged/wizard') }
+      setup { @ruby_slippers.get('/tagged/oz') }
       asserts("return a 200") { topic.status }.equals 200 
       asserts("body is not empty") {not topic.body.empty? }
       should("include only the entries for that tag") { topic.body }.includes_elements("li.article", 2)
-      should("have access to @tag") { topic.body }.includes_html("h1" => /wizard/)
+      should("have access to @tag") { topic.body }.includes_html("h1" => /oz/)
     end
   end
   

@@ -165,3 +165,11 @@
   margin: 24px 24px 12px 24px; padding: 24px;
   border: 3px dashed #ddd;
 }
+
+.archived_article {
+  width: 220px; float: left;
+}
+
+.archived_article .title {
+  font-size: 80%
+}

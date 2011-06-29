@@ -9,12 +9,12 @@ $:.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 begin
   # try to run as library (development)
   require './slippers_lib/ruby_slippers'
+  require './lib/ruby_slippers/client/tasks'
 rescue LoadError
   # run as gem (lib not installed)
   require 'ruby_slippers'
+  require 'ruby_slippers/client/tasks'
 end
-
-require './lib/ruby_slippers/client/tasks'
 
 URL = "http://domain.oz"
 AUTHOR = "author"
