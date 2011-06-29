@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'ruby-slippers'
+gem 'ruby_slippers'
 
 group :test, :development do
   gem 'heroku'
