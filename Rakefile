@@ -1,7 +1,15 @@
 require 'rubygems'
 require 'rake'
 require 'rake/testtask'
-require 'ruby_slippers'
+
+begin
+  # try to run as library (development)
+  require './slippers_lib/ruby_slippers'
+rescue LoadError
+  # run as gem (lib not installed)
+  require 'ruby_slippers'
+end
+
 require './lib/ruby_slippers/client/tasks'
 
 TASKS = RubySlippers::Client::Tasks.new

@@ -3,6 +3,12 @@ require 'date'
 
 require 'heroku'
 
+begin
+  require './slippers_lib/ext/ext'
+rescue LoadError
+  require 'ext/ext'
+end
+
 module RubySlippers
   module Client
     class Tasks
