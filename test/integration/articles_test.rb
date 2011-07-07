@@ -23,7 +23,8 @@ module RubySlippers::Engine
 
       context "with no articles" do
         setup { Rack::MockRequest.new(App.new(@config.merge(:ext => 'oxo'))).get('/') }
-
+        
+        should("include 0 articles"){ topic.body }.includes_elements("article", 0)
         asserts("body is not empty") { not topic.body.empty? }
         asserts("return a 200")    { topic.status }.equals 200
       end
