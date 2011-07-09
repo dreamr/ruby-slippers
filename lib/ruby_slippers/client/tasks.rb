@@ -17,7 +17,9 @@ module RubySlippers
       ROOT = File.expand_path("../../../../", __FILE__)
       THUMBS = File.expand_path("../../../../public/img/archives/", __FILE__)
       
-      @@config = RubySlippers::Engine::Config::Defaults
+      require File.expand_path("../../../../config", __FILE__)
+      app = RubySlippers::Engine::App
+      @@config = $app.config
       
       def create_article!
         title = ask('Title: ')
