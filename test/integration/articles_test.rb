@@ -44,6 +44,20 @@ module RubySlippers::Engine
         asserts("Etag header present") { topic.headers.include? "ETag" }
         asserts("Etag header has a value") { not topic.headers["ETag"].empty? }
       end
+      
+      context "with a user-defined ext" do
+        setup do
+          @config[:ext] = 'md'
+          @ruby_slippers.get('/')
+        end
+
+        asserts("return a 200") { topic.status }.equals 200
+        asserts("body is not empty"){ not topic.body.empty? }
+        asserts("content type is set properly") { topic.content_type }.equals "text/html"
+        should("include 1 article"){ topic.body }.includes_elements("article", 1)
+        asserts("Etag header present") { topic.headers.include? "ETag" }
+        asserts("Etag header has a value") { not topic.headers["ETag"].empty? }
+      end
     end
 
     context "GET a single article" do
