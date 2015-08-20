@@ -1,6 +1,4 @@
-# Brought to you from the people behind www.rubycasts.io
-
-Check out these awesome [ruby and rails screencasts](https://www.rubycasts.io)! There is 1 15 minute cast released every week as well as either a 2 Minute Ruby or a 2 Minute Rails screencast!
+> Learn to program in ODS' [Online Dev School](https://onlinedevschool.com) program where we train new web developers in today's hottest technologies like HTML5, CSS3, Javascript/E6 and Ruby!
 
 RubySlippers, the smartest blogging engine in all of Oz!
 ================
@@ -8,7 +6,6 @@ RubySlippers, the smartest blogging engine in all of Oz!
 
 RubySlippers is a git powered blog engine that aims to be simply to modify and more importantly, simple and quick and free to get a blog going. I am currently using it to run several blogs in production, you can see one in action here:
 
-[www.ninjaconfessions.com](www.ninjaconfessions.com) - My ruby blog
 
 Introduction
 ------------
